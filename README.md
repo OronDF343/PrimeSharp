@@ -9,4 +9,4 @@ Finds prime numbers very quickly using a modified implementation of the Sieve of
 * Full multithreading: ensures thread saftey of the operation.
 * Accuracy: Outputs correct number of primes according to pi(x)
 
-On an Intel Core i5-2400 processor (4 cores, 4 threads, OC@3.6GHz), it takes only 6.3 seconds to find all the primes below 1 billion! Of which 0.15 seconds were for saving the results to the disk
+On an Intel Core i5-2400 processor (4 cores, 4 threads, OC @ 3.6GHz), it takes only 6.3 seconds to find all the primes below 1 billion! Of which 0.15 seconds were for saving the results to the disk
