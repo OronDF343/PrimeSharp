@@ -1,5 +1,6 @@
 ﻿using OronUtil.Collections;
 using System;
+using System.Collections.Generic;
 using Win32FileIO;
 
 namespace PrimeSharp
@@ -68,6 +69,40 @@ namespace PrimeSharp
             var m = n - ((n >> 1) & 0x55555555);
             m = (m & 0x33333333) + ((m >> 2) & 0x33333333);
             return ((m + (m >> 4) & 0xF0F0F0F) * 0x1010101) >> 24;
+        }
+
+        public static Dictionary<long, byte> GetPrimeFactors(long num)
+        {
+            var a = Engine.GetPrimes(num);
+            var p = a.IndexOf(true);
+            var f = new Dictionary<long, byte>();
+            long i = 0;
+            while (num != 1 && i < p.Length)
+            {
+                if (num % p[i] == 0)
+                {
+                    if (!f.ContainsKey(p[i])) f.Add(p[i], 0);
+                    ++f[p[i]];
+                    num /= p[i];
+                }
+                else
+                    ++i;
+            }
+            return f;
+        }
+
+        public static bool LongCheck(long num)
+        {
+            var limit = (long)Math.Sqrt(num);
+
+            if (num % 2 == 0)
+                return false;
+
+            for (long div = 3; div <= limit; div += 2)
+                if (num % div == 0)
+                    return false;
+
+            return true;
         }
     }
 }
