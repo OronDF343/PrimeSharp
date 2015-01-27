@@ -8,8 +8,7 @@ namespace OronUtil.Collections
     {
         IEnumerator IEnumerable.GetEnumerator()
         {
-            for (long i = 0; i < Capacity; ++i)
-                yield return this[i];
+            return GetEnumerator();
         }
         public IEnumerator<bool> GetEnumerator()
         {

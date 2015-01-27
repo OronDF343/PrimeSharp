@@ -29,7 +29,7 @@ namespace PrimeSharp
 
             // In the full array, mark all the multiples of the known primes.
             // This will effectively sift the entire array because:
-            // all nonprime numbers up to x have at least one prime factor factor greater than or equal to Sqrt(x) (this is trivial)
+            // all nonprime numbers up to x have at least one prime factor less than or equal to Sqrt(x) (this is trivial)
             // therefore, by eliminating all multiples of all the possible prime factors below sqrt(x), only te prime numbers will be left.
             var allPrimes = new LongBitArray(length + 1);
             ParallelUtil.MarkAll(allPrimes, 2, true);
